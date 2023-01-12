@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Container, Dropdown, Navbar, Card, Media, Heading, Content, Box } from "react-bulma-components";
+import { Container, Dropdown, Navbar, Box, Image, Columns, Modal, Media, Button } from "react-bulma-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import Playbooks, { playbookName } from '../playbooks';
@@ -12,7 +12,8 @@ import Nomad from "./nomad";
 import Exile from "./exile";
 
 type MainState = {
-    playbook: Playbooks,
+    playbook?: Playbooks,
+    imageDetails: boolean,
 };
 
 export default class Main extends Component<{}, MainState> {
@@ -21,7 +22,9 @@ export default class Main extends Component<{}, MainState> {
 
         const playbook = window.localStorage.getItem('selected playbook');
         if (playbook !== undefined && playbook !== null) {
-            this.state = { playbook: parseInt(playbook) };
+            this.state = { playbook: parseInt(playbook), imageDetails: false };
+        } else {
+            this.state = { imageDetails: false };
         }
     }
 
@@ -35,13 +38,14 @@ export default class Main extends Component<{}, MainState> {
     render() {
         const label = (this.state?.playbook !== undefined) ? playbookName(this.state.playbook) : 'Choose Your Playbook';
         let playbookComponent = null;
+        let imageName = null;
         switch (this.state?.playbook) {
-            case Playbooks.hacktivist: playbookComponent = <Hacktivist />; break;
-            case Playbooks.augmented: playbookComponent = <Augmented />; break;
-            case Playbooks.scavenger: playbookComponent = <Scavenger />; break;
-            case Playbooks.fixer: playbookComponent = <Fixer />; break;
-            case Playbooks.nomad: playbookComponent = <Nomad />; break;
-            case Playbooks.exile: playbookComponent = <Exile />; break;
+            case Playbooks.hacktivist: playbookComponent = <Hacktivist />; imageName = 'hacktivist'; break;
+            case Playbooks.augmented: playbookComponent = <Augmented />; imageName = 'augmented'; break;
+            case Playbooks.scavenger: playbookComponent = <Scavenger />; imageName = 'scavenger'; break;
+            case Playbooks.fixer: playbookComponent = <Fixer />; imageName = 'fixer'; break;
+            case Playbooks.nomad: playbookComponent = <Nomad />; imageName = 'nomad'; break;
+            case Playbooks.exile: playbookComponent = <Exile />; imageName = 'exile'; break;
         }
 
         return <Container>
@@ -60,10 +64,29 @@ export default class Main extends Component<{}, MainState> {
             {
                 (this.state?.playbook !== undefined) &&
                 <Box style={{ margin: 'auto' }}>
-                    <StandardPlaybook />
+                    <StandardPlaybook>
+                        <Columns.Column size={2}>
+                            <Image style={{ cursor: "pointer" }} rounded={true} src={`images/${imageName}.png`} size={128} onClick={() => this.setState({ imageDetails: true })} />
+                        </Columns.Column>
+                    </StandardPlaybook>
                     {playbookComponent}
                 </Box>
             }
+            <Modal show={this.state?.imageDetails ?? false} onClose={() => this.setState({ imageDetails: false })}>
+                <Modal.Card>
+                    <Modal.Card.Header>
+                        <Modal.Card.Title>Image</Modal.Card.Title>
+                    </Modal.Card.Header>
+                    <Modal.Card.Body>
+                        <Media>
+                            <Image src={`images/${imageName}.png`} fullwidth={true} />
+                        </Media>
+                    </Modal.Card.Body>
+                    <Modal.Card.Footer renderAs={Button.Group} align="right" hasAddons>
+                        <Button color="success" onClick={() => this.setState({ imageDetails: false })}>Close</Button>
+                    </Modal.Card.Footer>
+                </Modal.Card>
+            </Modal>
         </Container>;
     }
 }

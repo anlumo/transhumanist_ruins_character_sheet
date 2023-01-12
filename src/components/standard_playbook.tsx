@@ -1,6 +1,6 @@
 import { faAngleDown, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ChangeEvent, Component } from "react";
+import { ChangeEvent, Component, ReactNode } from "react";
 import { Card, Columns, Content, Form, Heading, Icon, Section, Tag } from "react-bulma-components";
 import Move from "./move";
 
@@ -13,8 +13,11 @@ type StandardPlaybookState = {
     health: number,
     xp: number | null,
 };
+type StandardPlaybookProps = {
+    children?: ReactNode,
+};
 
-export default class StandardPlaybook extends Component<{}, StandardPlaybookState> {
+export default class StandardPlaybook extends Component<StandardPlaybookProps, StandardPlaybookState> {
     constructor(props: any) {
         super(props);
         const state = window.localStorage.getItem('stats');
@@ -81,6 +84,7 @@ export default class StandardPlaybook extends Component<{}, StandardPlaybookStat
         return <>
             <Section>
                 <Columns>
+                    {this.props.children}
                     <Columns.Column>
                         <Form.Field>
                             <Form.Label>Tech <Icon title="This stat represents your character's proficiency with technology, including their ability to hack computers, use advanced equipment, and understand the inner workings of machines. Tech could be used for a wide range of actions, from hacking a cybernetic implant to repairing a broken robot to building a makeshift weapon."><FontAwesomeIcon icon={faInfoCircle} /></Icon></Form.Label>
