@@ -11,6 +11,7 @@ import Fixer from "./fixer";
 import Nomad from "./nomad";
 import Exile from "./exile";
 import Renegade from "./renegade";
+import Cybernetics from "./cybernetics";
 
 type MainState = {
     playbook?: Playbooks,
@@ -85,6 +86,7 @@ export default class Main extends Component<{}, MainState> {
                             <Image style={{ cursor: "pointer" }} rounded={true} src={`images/${imageName}.png`} size={128} onClick={() => this.setState({ imageDetails: true })} />
                         </Columns.Column>
                     </StandardPlaybook>
+                    <Cybernetics />
                     {playbookComponent}
                     <Section>
                         <Form.Field>
