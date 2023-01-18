@@ -157,20 +157,6 @@ export default class Cybernetics extends Component<{}, CyberneticsState> {
                             MAJOR_IMPLANTS.map((implant) => <Dropdown.Item key={implant.id} renderAs='a' value={implant.id}><Icon><FontAwesomeIcon icon={faRobot} /></Icon> {implant.name} <Tag color='primary' rounded={true}>{implant.stat}</Tag></Dropdown.Item>)
                         }
                     </Dropdown>
-                </Columns.Column>
-                <Columns.Column>
-                    {
-                        this.state.firstImplant?.startsWith('MINOR') &&
-                        <Dropdown label='Pick an Implant' icon={<FontAwesomeIcon icon={faAngleDown} />} onChange={this.setSecondImplant}>
-                            {
-                                MINOR_IMPLANTS.filter((implant) => implant.id !== this.state.firstImplant).map((implant) => <Dropdown.Item key={implant.id} renderAs='a' value={implant.id}><Icon><FontAwesomeIcon icon={faPlug} /></Icon> {implant.name} <Tag color='primary' rounded={true}>{implant.stat}</Tag></Dropdown.Item>)
-                            }
-                        </Dropdown>
-                    }
-                </Columns.Column>
-            </Columns>
-            <Columns>
-                <Columns.Column>
                     {
                         implant1 &&
                         <Move name={implant1.name} stat={implant1.stat}>{implant1?.description}
@@ -183,6 +169,14 @@ export default class Cybernetics extends Component<{}, CyberneticsState> {
                     }
                 </Columns.Column>
                 <Columns.Column>
+                    {
+                        this.state.firstImplant?.startsWith('MINOR') &&
+                        <Dropdown label='Pick an Implant' icon={<FontAwesomeIcon icon={faAngleDown} />} onChange={this.setSecondImplant}>
+                            {
+                                MINOR_IMPLANTS.filter((implant) => implant.id !== this.state.firstImplant).map((implant) => <Dropdown.Item key={implant.id} renderAs='a' value={implant.id}><Icon><FontAwesomeIcon icon={faPlug} /></Icon> {implant.name} <Tag color='primary' rounded={true}>{implant.stat}</Tag></Dropdown.Item>)
+                            }
+                        </Dropdown>
+                    }
                     {
                         implant2 &&
                         <Move name={implant2.name} stat={implant2.stat}>{implant2?.description}
