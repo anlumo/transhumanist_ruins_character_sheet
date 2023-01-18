@@ -6,3 +6,17 @@ span.tag {
   margin-left: 1em;
   margin-right: 1em;
 }
+
+.section {
+  padding-top: 0;
+}
+
+.xpgain {
+  columns: auto 2;
+}
+
+@media (max-width: 768px) {
+  .xpgain {
+    columns: auto 1;
+  }
+}

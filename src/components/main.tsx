@@ -1,8 +1,8 @@
-import { Component } from "react";
-import { Container, Dropdown, Navbar, Box, Image, Columns, Modal, Media, Button } from "react-bulma-components";
+import React, { Component } from "react";
+import { Container, Dropdown, Navbar, Box, Image, Columns, Modal, Media, Button, Content, Section, Form } from "react-bulma-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
-import Playbooks, { playbookName } from '../playbooks';
+import Playbooks, { fullPlaybookDescription, playbookName } from '../playbooks';
 import StandardPlaybook from "./standard_playbook";
 import Hacktivist from "./hacktivist";
 import Augmented from "./augmented";
@@ -10,21 +10,24 @@ import Scavenger from "./scavenger";
 import Fixer from "./fixer";
 import Nomad from "./nomad";
 import Exile from "./exile";
+import Renegade from "./renegade";
 
 type MainState = {
     playbook?: Playbooks,
     imageDetails: boolean,
+    freeformText: string,
 };
 
 export default class Main extends Component<{}, MainState> {
     constructor(props: any) {
         super(props);
 
+        const freeformText = window.localStorage.getItem('freeform text') ?? '';
         const playbook = window.localStorage.getItem('selected playbook');
         if (playbook !== undefined && playbook !== null) {
-            this.state = { playbook: parseInt(playbook), imageDetails: false };
+            this.state = { playbook: parseInt(playbook), imageDetails: false, freeformText };
         } else {
-            this.state = { imageDetails: false };
+            this.state = { imageDetails: false, freeformText };
         }
     }
 
@@ -33,6 +36,14 @@ export default class Main extends Component<{}, MainState> {
             playbook: parseInt(playbook),
         });
         window.localStorage.setItem('selected playbook', playbook);
+    }
+
+    private setFreeformText = (event: React.FormEvent<HTMLTextAreaElement>) => {
+        const freeformText = (event.target as HTMLTextAreaElement).value ?? '';
+        this.setState({
+            freeformText,
+        });
+        window.localStorage.setItem('freeform text', freeformText);
     }
 
     render() {
@@ -46,6 +57,7 @@ export default class Main extends Component<{}, MainState> {
             case Playbooks.fixer: playbookComponent = <Fixer />; imageName = 'fixer'; break;
             case Playbooks.nomad: playbookComponent = <Nomad />; imageName = 'nomad'; break;
             case Playbooks.exile: playbookComponent = <Exile />; imageName = 'exile'; break;
+            case Playbooks.renegade: playbookComponent = <Renegade />; imageName = 'renegade'; break;
         }
 
         return <Container>
@@ -58,18 +70,30 @@ export default class Main extends Component<{}, MainState> {
                         <Dropdown.Item renderAs='a' title='The Fixer acts as a mediator, facilitator, and problem-solver in the complex world of the future.' value={Playbooks.fixer}>The Fixer</Dropdown.Item>
                         <Dropdown.Item renderAs='a' title='The Nomad wanders the wasteland, surviving on their wits and their knowledge of the land.' value={Playbooks.nomad}>The Nomad</Dropdown.Item>
                         <Dropdown.Item renderAs='a' title='The Exile has been cast out from society and now lives on the fringes, surviving as best they can.' value={Playbooks.exile}>The Exile</Dropdown.Item>
+                        <Dropdown.Item renderAs='a' title='The Renegade was once a member of a corporate military force, but has now turned against their former employers.' value={Playbooks.renegade}>The Renegade</Dropdown.Item>
                     </Dropdown>
                 </Navbar.Item>
             </Navbar>
             {
                 (this.state?.playbook !== undefined) &&
                 <Box style={{ margin: 'auto' }}>
+                    <Section>
+                        <p>{this.state && fullPlaybookDescription(this.state!.playbook)}</p>
+                    </Section>
                     <StandardPlaybook>
                         <Columns.Column size={2}>
                             <Image style={{ cursor: "pointer" }} rounded={true} src={`images/${imageName}.png`} size={128} onClick={() => this.setState({ imageDetails: true })} />
                         </Columns.Column>
                     </StandardPlaybook>
                     {playbookComponent}
+                    <Section>
+                        <Form.Field>
+                            <Form.Label>Freeform Notes</Form.Label>
+                            <Form.Control>
+                                <Form.Textarea value={this.state.freeformText} rows={10} onInput={this.setFreeformText} />
+                            </Form.Control>
+                        </Form.Field>
+                    </Section>
                 </Box>
             }
             <Modal show={this.state?.imageDetails ?? false} onClose={() => this.setState({ imageDetails: false })}>

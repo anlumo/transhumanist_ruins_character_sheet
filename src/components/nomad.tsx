@@ -1,21 +1,45 @@
-import { Component } from "react";
-import { Content, Heading, Section } from "react-bulma-components";
+import { Columns, Content, Heading, Section } from "react-bulma-components";
+import Move from "./move";
 
-export default function Nomad(props: any) {
+export default function Nomad(_props: any) {
     return <Section>
-        <Heading>Basic Moves</Heading>
+        <Heading>Playbook Moves</Heading>
         <Content>
+            <Columns>
+                <Columns.Column>
+                    <Move name='Survive in the Wasteland' stat='SAVY'>
+                        When you struggle to survive in the wasteland, roll 2d6+SAVY to see how well you do. On a 10+, choose three. On a 7-9, choose two:
+                        <ul>
+                            <li>You find food, water, shelter, or other resources.</li>
+                            <li>You avoid danger or hostile creatures.</li>
+                            <li>You discover valuable information or clues.</li>
+                            <li>You gain the help or support of a friendly tribe or community.</li>
+                            <li>You uncover a hidden opportunity or threat.</li>
+                        </ul>
+                    </Move>
+                </Columns.Column>
+                <Columns.Column>
+                    <Move name='Track, Hunt, and Navigation' stat='SAVY'>
+                        When you track, hunt, or navigate in the wasteland, roll 2d6+SAVY to see how well you do. On a 10+, choose three. On a 7-9, choose two:
+                        <ul>
+                            <li>You find your target or destination quickly and efficiently.</li>
+                            <li>You avoid making a costly mistake or misstep.</li>
+                            <li>You gain valuable insight or knowledge about your surroundings.</li>
+                            <li>You uncover a hidden weakness or vulnerability in your target or destination.</li>
+                            <li>You gain a temporary advantage or leverage over your target or destination.</li>
+                        </ul>
+                    </Move>
+                </Columns.Column>
+            </Columns>
+        </Content>
+        <Heading>Gain XP for:</Heading>
+        <Content className="xpgain">
             <ul>
-                <li>
-                    Hack the System: When you hack a computer or cybernetic implant, roll+Tech to see how much information you can uncover or how much control you can gain over the system. On a 10+, choose three. On a 7-9, choose two:
-                    <ul>
-                        <li>You gain access to sensitive or restricted information.</li>
-                        <li>You disrupt or disable a security system.</li>
-                        <li>You gain temporary control over a machine or device.</li>
-                        <li>You uncover a hidden weakness or vulnerability.</li>
-                        <li>You avoid detection or traceback.</li>
-                    </ul>
-                </li>
+                <li>Complete a major goal or objective: When a player's character achieves a significant goal or objective, they can be awarded XP. This could include completing a quest or mission, defeating a powerful enemy, or solving a difficult problem.</li>
+                <li>Advance the story: When a player's actions or choices contribute to advancing the story in a meaningful way, they can be awarded XP. This could include making a tough decision, uncovering a crucial piece of information, or taking a risk that has important consequences.</li>
+                <li>Surviving in the wasteland by finding food, water, shelter, and other resources.</li>
+                <li>Tracking, hunting, and navigating in the wasteland to find your target or destination.</li>
+                <li>Using your knowledge of the wasteland to avoid danger and stay one step ahead of your enemies.</li>
             </ul>
         </Content>
     </Section>;

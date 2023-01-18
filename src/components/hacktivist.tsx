@@ -1,8 +1,7 @@
-import { Component } from "react";
-import { Columns, Content, Heading, Section, Tag } from "react-bulma-components";
+import { Columns, Content, Heading, Section } from "react-bulma-components";
 import Move from "./move";
 
-export default function Hacktivist(props: any) {
+export default function Hacktivist(_props: any) {
     return <Section>
         <Heading>Playbook Moves</Heading>
         <Content>
@@ -32,7 +31,7 @@ export default function Hacktivist(props: any) {
             </Columns>
         </Content>
         <Heading>Gain XP for:</Heading>
-        <Content style={{ columns: 2 }}>
+        <Content className="xpgain">
             <ul>
                 <li>Complete a major goal or objective: When a player's character achieves a significant goal or objective, they can be awarded XP. This could include completing a quest or mission, defeating a powerful enemy, or solving a difficult problem.</li>
                 <li>Advance the story: When a player's actions or choices contribute to advancing the story in a meaningful way, they can be awarded XP. This could include making a tough decision, uncovering a crucial piece of information, or taking a risk that has important consequences.</li>

@@ -1,7 +1,7 @@
-import { faAngleDown, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ChangeEvent, Component, ReactNode } from "react";
-import { Card, Columns, Content, Form, Heading, Icon, Section, Tag } from "react-bulma-components";
+import { Columns, Content, Form, Heading, Icon, Section } from "react-bulma-components";
 import Move from "./move";
 
 const requiredStatSum = 6;
@@ -12,6 +12,7 @@ type StandardPlaybookState = {
     resilience: number,
     health: number,
     xp: number | null,
+    characterName: string,
 };
 type StandardPlaybookProps = {
     children?: ReactNode,
@@ -28,7 +29,17 @@ export default class StandardPlaybook extends Component<StandardPlaybookProps, S
             resilience: 1,
             health: 10,
             xp: 0,
+            characterName: '',
         };
+    }
+
+    private setCharacterName = (event: ChangeEvent<HTMLInputElement>) => {
+        const newState = {
+            ...this.state,
+            characterName: event.target.value ?? '',
+        };
+        this.setState(newState);
+        window.localStorage.setItem('stats', JSON.stringify(newState));
     }
 
     private setTech = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -83,6 +94,12 @@ export default class StandardPlaybook extends Component<StandardPlaybookProps, S
 
         return <>
             <Section>
+                <Form.Field>
+                    <Form.Label>Character Name</Form.Label>
+                    <Form.Control>
+                        <Form.Input type='text' value={this.state.characterName ?? ''} onChange={this.setCharacterName} />
+                    </Form.Control>
+                </Form.Field>
                 <Columns>
                     {this.props.children}
                     <Columns.Column>
@@ -181,7 +198,7 @@ export default class StandardPlaybook extends Component<StandardPlaybookProps, S
                         </Columns.Column>
                         <Columns.Column>
                             <Move name='Enhance' stat='TECH'>
-                                This move is used when your character wants to use advanced technology or genetic enhancements to give them an edge in a physical confrontation or other dangerous situation. Roll 2d6+TECH.
+                                This move is used when your character wants to use advanced technology or genetic enhancements to give them an edge in a physical confrontation or other dangerous situation or repair them. Roll 2d6+TECH.
                                 <ul>
                                     <li>
                                         On a 7-9, you succeed, but choose one:
