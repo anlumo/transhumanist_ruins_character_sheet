@@ -150,7 +150,7 @@ export default class Cybernetics extends Component<{}, CyberneticsState> {
                 <Columns.Column>
                     <Dropdown label='Pick an Implant' icon={<FontAwesomeIcon icon={faAngleDown} />} onChange={this.setFirstImplant}>
                         {
-                            MINOR_IMPLANTS.map((implant) => <Dropdown.Item key={implant.id} renderAs='a' value={implant.id}><Icon><FontAwesomeIcon icon={faPlug} /></Icon>{implant.name} <Tag color='primary' rounded={true}>{implant.stat}</Tag></Dropdown.Item>)
+                            MINOR_IMPLANTS.filter((implant) => !this.state.secondImplant || implant.id !== this.state.secondImplant).map((implant) => <Dropdown.Item key={implant.id} renderAs='a' value={implant.id}><Icon><FontAwesomeIcon icon={faPlug} /></Icon>{implant.name} <Tag color='primary' rounded={true}>{implant.stat}</Tag></Dropdown.Item>)
                         }
                         <Dropdown.Divider />
                         {
