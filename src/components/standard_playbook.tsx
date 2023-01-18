@@ -13,6 +13,7 @@ type StandardPlaybookState = {
     health: number,
     xp: number | null,
     characterName: string,
+    characterDescription: string,
 };
 type StandardPlaybookProps = {
     children?: ReactNode,
@@ -30,6 +31,7 @@ export default class StandardPlaybook extends Component<StandardPlaybookProps, S
             health: 10,
             xp: 0,
             characterName: '',
+            characterDescription: '',
         };
     }
 
@@ -37,6 +39,15 @@ export default class StandardPlaybook extends Component<StandardPlaybookProps, S
         const newState = {
             ...this.state,
             characterName: event.target.value ?? '',
+        };
+        this.setState(newState);
+        window.localStorage.setItem('stats', JSON.stringify(newState));
+    }
+
+    private setCharacterDescription = (event: ChangeEvent<HTMLInputElement>) => {
+        const newState = {
+            ...this.state,
+            characterDescription: event.target.value ?? '',
         };
         this.setState(newState);
         window.localStorage.setItem('stats', JSON.stringify(newState));
@@ -94,12 +105,22 @@ export default class StandardPlaybook extends Component<StandardPlaybookProps, S
 
         return <>
             <Section>
-                <Form.Field>
-                    <Form.Label>Character Name</Form.Label>
-                    <Form.Control>
-                        <Form.Input type='text' value={this.state.characterName ?? ''} onChange={this.setCharacterName} />
-                    </Form.Control>
-                </Form.Field>
+                <Columns>
+                    <Columns.Column>
+                        <Form.Field>
+                            <Form.Label>Character Name</Form.Label>
+                            <Form.Control>
+                                <Form.Input type='text' value={this.state.characterName ?? ''} onChange={this.setCharacterName} />
+                            </Form.Control>
+                        </Form.Field>
+                    </Columns.Column>
+                    <Columns.Column>
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control>
+                            <Form.Input type='text' value={this.state.characterDescription ?? ''} onChange={this.setCharacterDescription} />
+                        </Form.Control>
+                    </Columns.Column>
+                </Columns>
                 <Columns>
                     {this.props.children}
                     <Columns.Column>
