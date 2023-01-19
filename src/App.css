@@ -20,3 +20,7 @@ span.tag {
     columns: auto 1;
   }
 }
+
+button>svg[data-icon] {
+  padding-left: 1em;
+}
