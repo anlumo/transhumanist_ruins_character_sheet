@@ -49,6 +49,12 @@ const MINOR_IMPLANTS = [
             'You are able to come up with a plan, but it is not as effective as you hoped it would be.',
         ],
     },
+    {
+        id: 'MINOR echolocation',
+        name: 'Echolocation Implant',
+        stat: 'PASSIVE',
+        description: 'A cybernetic implant that allows you to "see" through sound waves, granting you the ability to see in complete darkness and detect objects and individuals from a distance.',
+    },
 ];
 
 const MAJOR_IMPLANTS = [
@@ -84,6 +90,23 @@ const MAJOR_IMPLANTS = [
             'You are able to defend against the hack, but you must sacrifice something valuable in order to do so.',
             'You are able to defend against the hack, but you leave a trace or signature that could be detected later.',
         ],
+    },
+    {
+        id: 'MAJOR chameleon',
+        name: 'Chameleon Skin',
+        stat: 'TECH',
+        description: 'When you want to use your cybernetic chameleon skin implant to blend in with their surroundings, roll 2d6+TECH:',
+        options: [
+            'On a 10+ you are able to blend in perfectly, becoming nearly invisible and giving you an advantage on sneak attacks or when trying to avoid detection.',
+            'On a 7-9 you blend in well enough to gain some benefits, but not completely.',
+            'On a 6 or lower, your implant malfunctions and you stand out even more than before.',
+        ],
+    },
+    {
+        id: 'MAJOR combat synapse',
+        name: 'Combat Synapse',
+        stat: 'PASSIVE',
+        description: 'A neural implant that enhances your combat reflexes and reaction time, allowing you to make lightning-fast decisions and movements in battle. It allows you to make an extra move in combat.',
     },
 ];
 
@@ -160,11 +183,13 @@ export default class Cybernetics extends Component<{}, CyberneticsState> {
                     {
                         implant1 &&
                         <Move name={implant1.name} stat={implant1.stat}>{implant1?.description}
-                            <ul>
-                                {
-                                    implant1.options.map((option, idx) => <li key={`implant1_${idx}`}>{option}</li>)
-                                }
-                            </ul>
+                            {implant1.options &&
+                                <ul>
+                                    {
+                                        implant1.options.map((option, idx) => <li key={`implant1_${idx}`}>{option}</li>)
+                                    }
+                                </ul>
+                            }
                         </Move>
                     }
                 </Columns.Column>
@@ -180,11 +205,13 @@ export default class Cybernetics extends Component<{}, CyberneticsState> {
                     {
                         implant2 &&
                         <Move name={implant2.name} stat={implant2.stat}>{implant2?.description}
-                            <ul>
-                                {
-                                    implant2.options.map((option, idx) => <li key={`implant1_${idx}`}>{option}</li>)
-                                }
-                            </ul>
+                            {implant2.options &&
+                                <ul>
+                                    {
+                                        implant2.options.map((option, idx) => <li key={`implant1_${idx}`}>{option}</li>)
+                                    }
+                                </ul>
+                            }
                         </Move>
                     }
                 </Columns.Column>
