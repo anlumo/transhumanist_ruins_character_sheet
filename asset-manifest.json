@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/transhumanist_ruins_character_sheet/static/css/main.4f5867ea.css",
+    "main.js": "/transhumanist_ruins_character_sheet/static/js/main.129629d3.js",
+    "static/js/787.dfece2e2.chunk.js": "/transhumanist_ruins_character_sheet/static/js/787.dfece2e2.chunk.js",
+    "index.html": "/transhumanist_ruins_character_sheet/index.html",
+    "main.4f5867ea.css.map": "/transhumanist_ruins_character_sheet/static/css/main.4f5867ea.css.map",
+    "main.129629d3.js.map": "/transhumanist_ruins_character_sheet/static/js/main.129629d3.js.map",
+    "787.dfece2e2.chunk.js.map": "/transhumanist_ruins_character_sheet/static/js/787.dfece2e2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4f5867ea.css",
+    "static/js/main.129629d3.js"
+  ]
+}
