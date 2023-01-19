@@ -69,15 +69,15 @@ export default class Main extends Component<{}, MainState> {
             <Navbar>
                 <Navbar.Item renderAs='div'>
                     <Dropdown color='primary' label={label} icon={<FontAwesomeIcon icon={faAngleDown} />} onChange={this.changePlaybook}>
-                        <Dropdown.Item renderAs='a' title='The Hacktivist uses their hacking skills to fight for a cause or challenge the power structures of the world.' value={Playbooks.hacktivist}>The Hacktivist</Dropdown.Item>
                         <Dropdown.Item renderAs='a' title='The Augmented has undergone extensive cybernetic or genetic enhancements to become a superhuman warrior.' value={Playbooks.augmented}>The Augmented</Dropdown.Item>
-                        <Dropdown.Item renderAs='a' title='The Scavenger makes a living by scavenging for resources in the ruins of a fallen society.' value={Playbooks.scavenger}>The Scavenger</Dropdown.Item>
-                        <Dropdown.Item renderAs='a' title='The Fixer acts as a mediator, facilitator, and problem-solver in the complex world of the future.' value={Playbooks.fixer}>The Fixer</Dropdown.Item>
-                        <Dropdown.Item renderAs='a' title='The Nomad wanders the wasteland, surviving on their wits and their knowledge of the land.' value={Playbooks.nomad}>The Nomad</Dropdown.Item>
-                        <Dropdown.Item renderAs='a' title='The Exile has been cast out from society and now lives on the fringes, surviving as best they can.' value={Playbooks.exile}>The Exile</Dropdown.Item>
-                        <Dropdown.Item renderAs='a' title='The Renegade was once a member of a corporate military force, but has now turned against their former employers.' value={Playbooks.renegade}>The Renegade</Dropdown.Item>
                         <Dropdown.Item renderAs='a' title='The Diplomat is skilled in navigating the complex political and social dynamics of the post-apocalyptic world.' value={Playbooks.diplomat}>The Diplomat</Dropdown.Item>
                         <Dropdown.Item renderAs='a' title='The Doctor is a medical professional in a post-apocalyptic setting. They are skilled in treating injuries, illnesses, and diseases.' value={Playbooks.doctor}>The Doctor</Dropdown.Item>
+                        <Dropdown.Item renderAs='a' title='The Exile has been cast out from society and now lives on the fringes, surviving as best they can.' value={Playbooks.exile}>The Exile</Dropdown.Item>
+                        <Dropdown.Item renderAs='a' title='The Fixer acts as a mediator, facilitator, and problem-solver in the complex world of the future.' value={Playbooks.fixer}>The Fixer</Dropdown.Item>
+                        <Dropdown.Item renderAs='a' title='The Hacktivist uses their hacking skills to fight for a cause or challenge the power structures of the world.' value={Playbooks.hacktivist}>The Hacktivist</Dropdown.Item>
+                        <Dropdown.Item renderAs='a' title='The Nomad wanders the wasteland, surviving on their wits and their knowledge of the land.' value={Playbooks.nomad}>The Nomad</Dropdown.Item>
+                        <Dropdown.Item renderAs='a' title='The Renegade was once a member of a corporate military force, but has now turned against their former employers.' value={Playbooks.renegade}>The Renegade</Dropdown.Item>
+                        <Dropdown.Item renderAs='a' title='The Scavenger makes a living by scavenging for resources in the ruins of a fallen society.' value={Playbooks.scavenger}>The Scavenger</Dropdown.Item>
                     </Dropdown>
                 </Navbar.Item>
             </Navbar>
