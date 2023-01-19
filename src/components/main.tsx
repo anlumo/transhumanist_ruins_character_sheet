@@ -77,7 +77,7 @@ export default class Main extends Component<{}, MainState> {
                         <Dropdown.Item renderAs='a' title='The Exile has been cast out from society and now lives on the fringes, surviving as best they can.' value={Playbooks.exile}>The Exile</Dropdown.Item>
                         <Dropdown.Item renderAs='a' title='The Renegade was once a member of a corporate military force, but has now turned against their former employers.' value={Playbooks.renegade}>The Renegade</Dropdown.Item>
                         <Dropdown.Item renderAs='a' title='The Diplomat is skilled in navigating the complex political and social dynamics of the post-apocalyptic world.' value={Playbooks.diplomat}>The Diplomat</Dropdown.Item>
-                        <Dropdown.Item renderAs='a' title='The Doctor is a medical professional in a post-apocalyptic setting. The Doctor is skilled in treating injuries, illnesses, and diseases.' value={Playbooks.doctor}>The Doctor</Dropdown.Item>
+                        <Dropdown.Item renderAs='a' title='The Doctor is a medical professional in a post-apocalyptic setting. They are skilled in treating injuries, illnesses, and diseases.' value={Playbooks.doctor}>The Doctor</Dropdown.Item>
                     </Dropdown>
                 </Navbar.Item>
             </Navbar>
