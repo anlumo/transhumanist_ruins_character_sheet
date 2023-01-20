@@ -1,0 +1,44 @@
+body {
+  user-select: none;
+}
+
+span.tag {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.xpgain {
+  columns: auto 2;
+}
+
+@media (max-width: 768px) {
+  .xpgain {
+    columns: auto 1;
+  }
+}
+
+button>svg[data-icon] {
+  padding-left: 1em;
+}
+
+body {
+  background-image: url('images/background.webp');
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.character-image {
+  box-shadow: 0 0 8px black;
+  border-radius: 999px;
+
+  transition: 0.05s transform ease-in-out;
+
+  &:hover {
+    box-shadow: 0 0 8px white;
+    transform: scale(1.05, 1.05);
+  }
+}
+
+.card:hover {
+  box-shadow: 0 0 8px white;
+}

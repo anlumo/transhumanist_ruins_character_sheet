@@ -1,0 +1,21 @@
+.modal-background {
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+}
+
+.container {
+    background-color: transparent;
+}
+
+.box {
+    backdrop-filter: blur(6px);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.navbar {
+    background-color: transparent;
+}
+
+.section {
+    padding-top: 0;
+}

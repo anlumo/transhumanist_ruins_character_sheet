@@ -5,15 +5,24 @@ import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import Playbooks, { fullPlaybookDescription, playbookName } from '../playbooks';
 import StandardPlaybook from "./standard_playbook";
 import Hacktivist from "./hacktivist";
+import HacktivistImage from "../images/hacktivist.webp";
 import Augmented from "./augmented";
+import AugmentedImage from "../images/augmented.webp";
 import Scavenger from "./scavenger";
+import ScavengerImage from "../images/scavenger.webp";
 import Fixer from "./fixer";
+import FixerImage from "../images/fixer.webp";
 import Nomad from "./nomad";
+import NomadImage from "../images/nomad.webp";
 import Exile from "./exile";
+import ExileImage from "../images/exile.webp";
 import Renegade from "./renegade";
-import Cybernetics from "./cybernetics";
+import RenegadeImage from "../images/renegade.webp";
 import Doctor from "./doctor";
+import DoctorImage from "../images/doctor.webp";
 import Diplomat from "./diplomat";
+import DiplomatImage from "../images/diplomat.webp";
+import Cybernetics from "./cybernetics";
 
 type MainState = {
     playbook?: Playbooks,
@@ -51,18 +60,18 @@ export default class Main extends Component<{}, MainState> {
 
     render() {
         const label = (this.state?.playbook !== undefined) ? playbookName(this.state.playbook) : 'Choose Your Playbook';
-        let playbookComponent = null;
-        let imageName = null;
+        let playbookComponent = undefined;
+        let image = undefined;
         switch (this.state?.playbook) {
-            case Playbooks.hacktivist: playbookComponent = <Hacktivist />; imageName = 'hacktivist'; break;
-            case Playbooks.augmented: playbookComponent = <Augmented />; imageName = 'augmented'; break;
-            case Playbooks.scavenger: playbookComponent = <Scavenger />; imageName = 'scavenger'; break;
-            case Playbooks.fixer: playbookComponent = <Fixer />; imageName = 'fixer'; break;
-            case Playbooks.nomad: playbookComponent = <Nomad />; imageName = 'nomad'; break;
-            case Playbooks.exile: playbookComponent = <Exile />; imageName = 'exile'; break;
-            case Playbooks.renegade: playbookComponent = <Renegade />; imageName = 'renegade'; break;
-            case Playbooks.doctor: playbookComponent = <Doctor />; imageName = 'doctor'; break;
-            case Playbooks.diplomat: playbookComponent = <Diplomat />; imageName = 'diplomat'; break;
+            case Playbooks.hacktivist: playbookComponent = <Hacktivist />; image = HacktivistImage; break;
+            case Playbooks.augmented: playbookComponent = <Augmented />; image = AugmentedImage; break;
+            case Playbooks.scavenger: playbookComponent = <Scavenger />; image = ScavengerImage; break;
+            case Playbooks.fixer: playbookComponent = <Fixer />; image = FixerImage; break;
+            case Playbooks.nomad: playbookComponent = <Nomad />; image = NomadImage; break;
+            case Playbooks.exile: playbookComponent = <Exile />; image = ExileImage; break;
+            case Playbooks.renegade: playbookComponent = <Renegade />; image = RenegadeImage; break;
+            case Playbooks.doctor: playbookComponent = <Doctor />; image = DoctorImage; break;
+            case Playbooks.diplomat: playbookComponent = <Diplomat />; image = DiplomatImage; break;
         }
 
         return <Container>
@@ -88,9 +97,11 @@ export default class Main extends Component<{}, MainState> {
                         <p>{this.state && fullPlaybookDescription(this.state!.playbook)}</p>
                     </Section>
                     <StandardPlaybook>
-                        <Columns.Column size={2}>
-                            <Image style={{ cursor: "pointer" }} rounded={true} src={`images/${imageName}.png`} size={128} onClick={() => this.setState({ imageDetails: true })} />
-                        </Columns.Column>
+                        {image &&
+                            <Columns.Column size={2}>
+                                <Image style={{ cursor: "pointer" }} rounded={true} className='character-image' src={image} size={128} onClick={() => this.setState({ imageDetails: true })} />
+                            </Columns.Column>
+                        }
                     </StandardPlaybook>
                     <Cybernetics />
                     {playbookComponent}
@@ -111,7 +122,7 @@ export default class Main extends Component<{}, MainState> {
                     </Modal.Card.Header>
                     <Modal.Card.Body>
                         <Media>
-                            <Image src={`images/${imageName}.png`} fullwidth={true} />
+                            <Image src={image!} fullwidth={true} />
                         </Media>
                     </Modal.Card.Body>
                     <Modal.Card.Footer renderAs={Button.Group} align="right" hasAddons>

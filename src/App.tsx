@@ -1,6 +1,7 @@
-import React from 'react';
-import 'bulma/css/bulma.min.css';
-import './App.css';
+
+import './App.scss';
+import 'bulmaswatch/nuclear/bulmaswatch.scss';
+import './_overrides.scss';
 import Main from './components/main';
 
 // https://couds.github.io/react-bulma-components/
