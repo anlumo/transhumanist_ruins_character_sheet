@@ -1,15 +1,23 @@
 {
   "files": {
-    "main.css": "/transhumanist_ruins_character_sheet/static/css/main.4f5867ea.css",
-    "main.js": "/transhumanist_ruins_character_sheet/static/js/main.129629d3.js",
-    "static/js/787.dfece2e2.chunk.js": "/transhumanist_ruins_character_sheet/static/js/787.dfece2e2.chunk.js",
+    "main.css": "/transhumanist_ruins_character_sheet/static/css/main.1e485828.css",
+    "main.js": "/transhumanist_ruins_character_sheet/static/js/main.bd37e74e.js",
+    "static/media/background.webp": "/transhumanist_ruins_character_sheet/static/media/background.9b8fb9691a18b254dfb1.webp",
+    "static/media/augmented.webp": "/transhumanist_ruins_character_sheet/static/media/augmented.20464b4de664f86fd9fa.webp",
+    "static/media/scavenger.webp": "/transhumanist_ruins_character_sheet/static/media/scavenger.bb6a5e05a80a775b32b1.webp",
+    "static/media/doctor.webp": "/transhumanist_ruins_character_sheet/static/media/doctor.2a54f3efb17b328fb3ab.webp",
+    "static/media/fixer.webp": "/transhumanist_ruins_character_sheet/static/media/fixer.9526cdb2839daa797389.webp",
+    "static/media/nomad.webp": "/transhumanist_ruins_character_sheet/static/media/nomad.5064626e0f4fcc86bc11.webp",
+    "static/media/renegade.webp": "/transhumanist_ruins_character_sheet/static/media/renegade.034d97cc965c2124ad7d.webp",
+    "static/media/hacktivist.webp": "/transhumanist_ruins_character_sheet/static/media/hacktivist.6c73325f12943779008f.webp",
+    "static/media/exile.webp": "/transhumanist_ruins_character_sheet/static/media/exile.e046dd22a56fd6a5b486.webp",
+    "static/media/diplomat.webp": "/transhumanist_ruins_character_sheet/static/media/diplomat.8d0e67b76ff7fbf08769.webp",
     "index.html": "/transhumanist_ruins_character_sheet/index.html",
-    "main.4f5867ea.css.map": "/transhumanist_ruins_character_sheet/static/css/main.4f5867ea.css.map",
-    "main.129629d3.js.map": "/transhumanist_ruins_character_sheet/static/js/main.129629d3.js.map",
-    "787.dfece2e2.chunk.js.map": "/transhumanist_ruins_character_sheet/static/js/787.dfece2e2.chunk.js.map"
+    "main.1e485828.css.map": "/transhumanist_ruins_character_sheet/static/css/main.1e485828.css.map",
+    "main.bd37e74e.js.map": "/transhumanist_ruins_character_sheet/static/js/main.bd37e74e.js.map"
   },
   "entrypoints": [
-    "static/css/main.4f5867ea.css",
-    "static/js/main.129629d3.js"
+    "static/css/main.1e485828.css",
+    "static/js/main.bd37e74e.js"
   ]
 }
