@@ -1,7 +1,7 @@
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Component, ReactNode } from "react";
-import { Block, Card, Columns, Content, Form, Heading, Icon, Section, Tag } from "react-bulma-components";
+import { Block, Card, Content, Icon, Tag } from "react-bulma-components";
 
 type MoveProps = {
     name: string,
