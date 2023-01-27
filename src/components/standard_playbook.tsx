@@ -4,7 +4,7 @@ import { ChangeEvent, Component, ReactNode } from "react";
 import { Columns, Content, Form, Heading, Icon, Section } from "react-bulma-components";
 import Move from "./move";
 
-const requiredStatSum = 6;
+const requiredStatSum = 3;
 
 type StandardPlaybookState = {
     tech: number,
@@ -128,10 +128,11 @@ export default class StandardPlaybook extends Component<StandardPlaybookProps, S
                             <Form.Label>Tech <Icon title="This stat represents your character's proficiency with technology, including their ability to hack computers, use advanced equipment, and understand the inner workings of machines. Tech could be used for a wide range of actions, from hacking a cybernetic implant to repairing a broken robot to building a makeshift weapon."><FontAwesomeIcon icon={faInfoCircle} /></Icon></Form.Label>
                             <Form.Control>
                                 <Form.Select value={this.state.tech} onChange={this.setTech}>
+                                    <option>-2</option>
+                                    <option>-1</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
-                                    <option>3</option>
                                 </Form.Select>
                             </Form.Control>
                         </Form.Field>
@@ -141,10 +142,11 @@ export default class StandardPlaybook extends Component<StandardPlaybookProps, S
                             <Form.Label>Savy <Icon title="This stat represents your character's cunning and resourcefulness, including their ability to navigate complex social situations, outsmart their opponents, and find creative solutions to difficult problems. Savvy could be used for a wide range of actions, from negotiating with rival factions to scavenging for resources to outwitting an enemy in combat."><FontAwesomeIcon icon={faInfoCircle} /></Icon></Form.Label>
                             <Form.Control>
                                 <Form.Select value={this.state.savy} onChange={this.setSavy}>
+                                    <option>-2</option>
+                                    <option>-1</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
-                                    <option>3</option>
                                 </Form.Select>
                             </Form.Control>
                         </Form.Field>
@@ -154,10 +156,11 @@ export default class StandardPlaybook extends Component<StandardPlaybookProps, S
                             <Form.Label>Resilience <Icon title="This stat represents your character's toughness and determination, including their ability to withstand physical punishment, endure harsh environments, and keep going when the odds are against them. Resilience could be used for a wide range of actions, from surviving in a hostile wasteland to standing up to intimidating foes to overcoming physical challenges."><FontAwesomeIcon icon={faInfoCircle} /></Icon></Form.Label>
                             <Form.Control>
                                 <Form.Select value={this.state.resilience} onChange={this.setResilience}>
+                                    <option>-2</option>
+                                    <option>-1</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
-                                    <option>3</option>
                                 </Form.Select>
                             </Form.Control>
                         </Form.Field>
