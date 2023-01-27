@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/transhumanist_ruins_character_sheet/static/css/main.1e485828.css",
-    "main.js": "/transhumanist_ruins_character_sheet/static/js/main.bd37e74e.js",
+    "main.js": "/transhumanist_ruins_character_sheet/static/js/main.129ef506.js",
     "static/media/background.webp": "/transhumanist_ruins_character_sheet/static/media/background.9b8fb9691a18b254dfb1.webp",
     "static/media/augmented.webp": "/transhumanist_ruins_character_sheet/static/media/augmented.20464b4de664f86fd9fa.webp",
     "static/media/scavenger.webp": "/transhumanist_ruins_character_sheet/static/media/scavenger.bb6a5e05a80a775b32b1.webp",
@@ -14,10 +14,10 @@
     "static/media/diplomat.webp": "/transhumanist_ruins_character_sheet/static/media/diplomat.8d0e67b76ff7fbf08769.webp",
     "index.html": "/transhumanist_ruins_character_sheet/index.html",
     "main.1e485828.css.map": "/transhumanist_ruins_character_sheet/static/css/main.1e485828.css.map",
-    "main.bd37e74e.js.map": "/transhumanist_ruins_character_sheet/static/js/main.bd37e74e.js.map"
+    "main.129ef506.js.map": "/transhumanist_ruins_character_sheet/static/js/main.129ef506.js.map"
   },
   "entrypoints": [
     "static/css/main.1e485828.css",
-    "static/js/main.bd37e74e.js"
+    "static/js/main.129ef506.js"
   ]
 }
